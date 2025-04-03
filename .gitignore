@@ -1,0 +1,10 @@
+# Ignore node_modules directory
+node_modules/
+
+# Ignore the dist directory
+dist/
+
+# Environment variable files
+.env
+.env.production
+.env.development
