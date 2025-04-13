@@ -82,8 +82,8 @@ const Page = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gray-100 flex items-center justify-center dark:bg-gray-900 transition-all duration-300">
-      <div className=" md:w-full max-w-2xl bg-white dark:bg-gray-800 shadow-lg rounded-lg overflow-hidden">
+    <div className="min-h-screen flex items-center justify-center dark:bg-gray-900 transition-all duration-300">
+      <div className=" md:w-full max-w-2xl dark:bg-gray-800 shadow-lg rounded-lg overflow-hidden">
         <div className="p-8">
           <h3 className="text-center text-2xl font-semibold text-gray-900 dark:text-gray-100">Register Here</h3>
           <Form {...form}>

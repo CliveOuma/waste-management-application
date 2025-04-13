@@ -13,7 +13,7 @@ const Card = ({ title, description, image }: { title: string; description: strin
       />
       <div className="p-4">
         <h2 className="text-xl font-semibold mb-2">{title}</h2>
-        <p className="text-gray-600">{description}</p>
+        <p>{description}</p>
       </div>
     </div>
   );

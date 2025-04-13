@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import React, { useState } from "react";
 import * as z from "zod";
@@ -28,7 +28,7 @@ const signInSchema = z.object({
 const LoginPage = () => {
   const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
-  const { login } = useUser();  
+  const { login } = useUser();
 
   const form = useForm<z.infer<typeof signInSchema>>({
     resolver: zodResolver(signInSchema),
@@ -39,20 +39,20 @@ const LoginPage = () => {
   });
 
   const handleSubmit = async (values: { email: string; password: string }) => {
-    setIsLoading(true);
+    setIsLoading(true); // Set loading state to true when the login attempt begins
     try {
       const response = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/api/auth/login`, values, {
-        withCredentials: true,  
+        withCredentials: true,
       });
 
       const { token, user } = response.data;
       if (!token || !user) throw new Error("Invalid response from server");
 
-      login(user, token);  
-
+      login(user, token); // Save user login state
       toast.success("Logged In Successfully");
-      router.push("/");  
+      router.push("/"); // Redirect to the home page after successful login
     } catch (error: unknown) {
+      setIsLoading(false); // Set loading state back to false after error occurs
       if (axios.isAxiosError(error)) {
         toast.error(error.response?.data?.message || "Something went wrong");
       } else {
@@ -105,7 +105,7 @@ const LoginPage = () => {
               />
               <Button
                 type="submit"
-                disabled={isLoading}
+                disabled={isLoading} 
                 className="w-full bg-green-500 text-white dark:bg-green-600 hover:bg-green-600 dark:hover:bg-green-700 transition-colors"
               >
                 {isLoading ? "Logging in..." : "Login"}
